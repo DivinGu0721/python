@@ -1,0 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+res = requests.get('http://news.sina.com.cn/c/nd/2017-11-30/doc-ifyphxwa7135815.shtml')
+res.encoding='utf-8'
+soup =BeautifulSoup(res.text,'html.parser')
+print (soup)

@@ -1,0 +1,47 @@
+# -*- coding:utf-8 -*-
+import requests
+newsurl= 'http://mil.news.sina.com.cn/'
+res= requests.get(newsurl)
+
+#指明网页使用utf-8读取
+res.encoding= 'utf-8'
+
+print(type(res))
+#print (res.text)
+#bs4 去除标签
+
+from bs4 import BeautifulSoup
+html_sample = '\
+<html> \
+<body> \
+<h1 id ="title"> Hello World </h1> \
+<a href = "#" class = "link">This is link1</a> \
+<a href = “#” class = "link">This is link2</a> \
+</body> \
+</html> '
+soup = BeautifulSoup(html_sample,'html.parser')
+print(type(soup))
+print (soup.text)
+#使用select方法 取出特定标签的元素
+#使用select取出h1标签元素
+soup = BeautifulSoup(html_sample)
+header = soup.select('h1')
+print (header)
+#使用select取出按标签元素
+soup = BeautifulSoup(html_sample)
+alink = soup.select('a')
+print alink
+print alink[1]
+print alink[1].text
+#取得含有特定css属性的元素
+#使用select取出所有id为title的元素(id前加#)
+alink =  soup.select ('#title')
+print alink
+#使用select取出所有class为link的元素(class前加.)
+soup = BeautifulSoup(html_sample)
+for link in soup.select ('.link'):
+    print link
+#使用所有a tag的herf连接
+alinks = soup.select('a')
+for link in alinks:
+    print (link['href'])

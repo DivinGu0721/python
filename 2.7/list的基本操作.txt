@@ -1,0 +1,33 @@
+# -*- coding:utf-8 -*-
+abc=['abc',1111,'AbD',1.24,6666]
+abc.append('divin')
+abc.extend(['zzz',5555])
+abc.insert(1,'ccc')
+print abc
+
+#交换abc[0]和abc[1]
+temp = abc [0]
+abc[0]=abc[1]
+abc[1]=temp
+print abc
+
+#删除  命令del abc 可以直接删除整个list
+abc.remove(5555)
+print abc[1]
+#pop 弹出列表中元素
+abc.pop()
+b=abc.pop()
+print b
+#列表分片slice 利用索引 一次性获取多个元素
+#sort排序reverse颠倒
+list1=[2,5425,25252,22,33,444,5551,6654242,5180180]
+list1.sort(reverse=True)
+print list1
+list1.sort()
+print list1
+list2=list1[:]
+print list2
+tuple1=(1,2,3,4,5,6,7,8,9)
+tuple2=tuple1[:]
+print tuple2
+
